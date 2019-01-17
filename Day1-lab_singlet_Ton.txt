@@ -1,0 +1,38 @@
+1. public class TSingleton {
+
+	private static TSingleton uniqueInstance;
+
+	synchronized public static TSingleton getInstance() {
+		if (uniqueInstance == null) {
+			uniqueInstance = new TSingleton();
+		}
+		return uniqueInstance;
+
+	}
+	private TSingleton() {
+	}
+}
+
+=> This is thread safe because as getInstance() method is made synchronized so that multiple threads can’t access it simultaneously.
+
+2. 
+   public class Singleton {
+
+	private static volatile Singleton uniqueInstance;
+	private static Object mutex = new Object();
+	public static Singleton getInstance() {
+		Singleton result = uniqueInstance;
+		if (result == null) {
+			synchronized (mutex) {
+				result = uniqueInstance;
+				if (result == null)
+					uniqueInstance = result = new Singleton();
+			}
+		}
+		return result;
+	}
+	private Singleton() {
+	}
+
+}
+=>Synchronization overhead is minimal and applicable only for first few threads when the variable is null.
