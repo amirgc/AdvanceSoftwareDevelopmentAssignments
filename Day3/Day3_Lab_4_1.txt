@@ -1,0 +1,36 @@
+public abstract class AlphabetTemplate {
+
+	void DrawAlphabet(String AlphabetName) {
+		String filePath = loadFileFromSource();
+		String symmetryType = IdentifySymmetry(filePath);
+		String[] str = Reconstructletter(filePath, symmetryType);
+		Print(str);
+	}
+
+	String loadFileFromSource() {
+		return "";
+	}
+
+	private String IdentifySymmetry(String filePath) {
+		// algorithm to identify alphabet type
+		String symmetryType = "";
+		return symmetryType;
+	}
+
+	abstract String[] Reconstructletter(String filePath, String symmetryType);
+
+	void Print(String[] str) {
+		// code to print
+	}
+}
+
+
+public class AlphabetPrintSymmetric extends AlphabetTemplate {
+
+	@Override
+	String[] Reconstructletter(String filePath, String symmetryType) {
+		// code to reconstruct symmetric alphabet
+		return null;
+	}
+
+}
