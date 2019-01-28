@@ -1,26 +1,30 @@
-package lab7;
+package lab_08_01;
 
-public class IceState extends CarPorperties implements CarState {
+public class IceState implements RoadState {
 
-	@Override
-	public void setLeft() {
-		super.setLeft(1);
+	private CarDriving carDriving;
 
+	public IceState(CarDriving carDriving) {
+		this.carDriving = carDriving;
 	}
 
 	@Override
-	public void setAccel() {
-		super.setAccel(3);
+	public void left() {
+		carDriving.setLevel(1);
 	}
 
 	@Override
-	public void setRight() {
-		super.setRight(1);
+	public void accelerate() {
+		carDriving.setLevel(3);
 	}
 
 	@Override
-	public void setBrake() {
-		super.setBrake(2);
+	public void right() {
+		carDriving.setLevel(1);
 	}
 
+	@Override
+	public void brake() {
+		carDriving.setLevel(2);
+	}
 }

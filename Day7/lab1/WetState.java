@@ -1,24 +1,32 @@
-package lab7;
+package lab_08_01;
 
-public class WetState extends CarPorperties implements CarState {
-	@Override
-	public void setLeft() {
-		super.setLeft(4);
+public class WetState implements RoadState {
+
+	private CarDriving carDriving;
+
+	public WetState(CarDriving carDriving) {
+		this.carDriving = carDriving;
 	}
 
 	@Override
-	public void setAccel() {
-		super.setAccel(9);
+	public void left() {
+		carDriving.setLevel(4);
+
 	}
 
 	@Override
-	public void setRight() {
-		super.setRight(4);
+	public void accelerate() {
+		carDriving.setLevel(9);
 	}
 
 	@Override
-	public void setBrake() {
-		super.setBrake(7);
+	public void right() {
+		carDriving.setLevel(4);
+	}
+
+	@Override
+	public void brake() {
+		carDriving.setLevel(7);
 	}
 
 }

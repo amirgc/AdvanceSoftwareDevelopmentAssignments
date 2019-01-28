@@ -1,25 +1,33 @@
-package lab7;
+package lab_08_01;
 
-public class GravelState extends CarPorperties implements CarState {
+public class GravelState implements RoadState {
 
-	@Override
-	public void setLeft() {
-		super.setLeft(3);
+	private CarDriving carDriving;
+
+	public GravelState(CarDriving carDriving) {
+		this.carDriving = carDriving;
 	}
 
 	@Override
-	public void setAccel() {
-		super.setAccel(7);
+	public void left() {
+		carDriving.setLevel(3);
+
 	}
 
 	@Override
-	public void setRight() {
-		super.setRight(3);
+	public void accelerate() {
+		carDriving.setLevel(7);
 	}
 
 	@Override
-	public void setBrake() {
-		super.setBrake(6);
+	public void right() {
+		carDriving.setLevel(3);
+
+	}
+
+	@Override
+	public void brake() {
+		carDriving.setLevel(6);
 	}
 
 }

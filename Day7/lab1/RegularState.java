@@ -1,25 +1,30 @@
-package lab7;
+package lab_08_01;
 
-public class RegularState extends CarPorperties implements CarState {
+public class RegularState implements RoadState {
+	private CarDriving carDriving;
 
-	@Override
-	public void setLeft() {
-		super.setLeft(5);
+	public RegularState(CarDriving carDriving) {
+		this.carDriving = carDriving;
 	}
 
 	@Override
-	public void setAccel() {
-		super.setAccel(9);
+	public void accelerate() {
+		carDriving.setLevel(9);
 	}
 
 	@Override
-	public void setRight() {
-		super.setRight(5);
+	public void left() {
+		carDriving.setLevel(5);
 	}
 
 	@Override
-	public void setBrake() {
-		super.setBrake(8);
+	public void right() {
+		carDriving.setLevel(5);
+	}
+
+	@Override
+	public void brake() {
+		carDriving.setLevel(8);
 	}
 
 }
